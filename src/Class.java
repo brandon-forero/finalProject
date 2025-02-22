@@ -10,7 +10,7 @@ public class Class {
     public Class(String name, String classRoom, Teacher teacher) {
         this.name = name;
         ClassRoom = classRoom;
-        this.students = new ArrayList<>();;
+        this.students = new ArrayList<>();
         this.teacher = teacher;
     }
 

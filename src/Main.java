@@ -13,8 +13,9 @@ public class Main {
             System.out.println("2. Print all classes");
             System.out.println("3. Create a new student");
             System.out.println("4. Create a new class");
-            System.out.println("5. List all classes for an student");
-            System.out.println("6. Exit");
+            System.out.println("5. Create a new teacher");
+            System.out.println("6. List all classes for an student");
+            System.out.println("7. Exit");
             System.out.print("Option: ");
             option = scan.nextInt();
 
@@ -45,9 +46,12 @@ public class Main {
                     System.out.println("selected: 4");
                     break;
                 case 5:
-                    System.out.println("selected: 5");
+                    System.out.println("Creating a new teacher...");
                     break;
                 case 6:
+                    System.out.println("selected: 6");
+                    break;
+                case 7:
                     System.out.println("Bye Bye :)");
                     break;
                 default:

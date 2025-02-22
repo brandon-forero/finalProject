@@ -6,6 +6,7 @@ public class Main {
 
         int lastId = 0;
         int option;
+        int teacherType;
 
         do {
             System.out.println("\nWelcome to the university system\nSelect an option:");
@@ -30,11 +31,11 @@ public class Main {
                     System.out.println("Creating a new student...");
                     System.out.println("Student name: ");
                     scan.nextLine();
-                    String name = scan.nextLine();
+                    String newStudentName = scan.nextLine();
                     System.out.println("Student age: ");
                     int age = scan.nextInt();
 
-                    Student newStudent = new Student(lastId, name, age);
+                    Student newStudent = new Student(lastId, newStudentName, age);
                     lastId++;
                     System.out.println("Student with the next info was successfully created: ");
                     System.out.println("New student id: " + newStudent.getId());
@@ -47,6 +48,37 @@ public class Main {
                     break;
                 case 5:
                     System.out.println("Creating a new teacher...");
+                    System.out.println("Which type of teacher do you want to create: ");
+                    System.out.println("1. Full time teacher");
+                    System.out.println("2. Full time teacher");
+                    System.out.println("3. Cancel");
+                    teacherType = scan.nextInt();
+                    scan.nextLine();
+                    if(teacherType == 1){
+                        System.out.println("Creating a new full time teacher: ");
+                        System.out.println("Teacher name: ");
+                        String newTeacherName = scan.nextLine();
+                        System.out.println("Teacher experience years: ");
+                        int newTeacherExperienceYears = scan.nextInt();
+                        System.out.println("Teacher base salary: ");
+                        double newTeacherBaseSalary = scan.nextDouble();
+
+                        FullTimeTeacher newTeacher = new FullTimeTeacher(newTeacherName, newTeacherBaseSalary, newTeacherExperienceYears);
+                        System.out.println("Full time teacher with the next info was successfully created: ");
+                        System.out.println("New teacher name: " + newTeacher.getName());
+                        System.out.println("New teacher experience years: " + newTeacher.getExperienceYears());
+                        System.out.println("New teacher salary: $" + newTeacher.getSalary());
+                        pressEnterToContinue();
+                    }
+                    else if(teacherType == 2){
+                        System.out.println("1. Full time teacher");
+                        pressEnterToContinue();
+
+                    }
+                    else {
+                        System.out.println("wrong option, try again");
+                        pressEnterToContinue();
+                    }
                     break;
                 case 6:
                     System.out.println("selected: 6");

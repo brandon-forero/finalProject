@@ -1,9 +1,10 @@
 import java.util.Scanner;
 
 public class Main {
+    static Scanner scan = new Scanner(System.in);
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
 
+        int lastId = 0;
         int option;
 
         do {
@@ -25,7 +26,20 @@ public class Main {
                     System.out.println("selected: 2");
                     break;
                 case 3:
-                    System.out.println("selected: 3");
+                    System.out.println("Creating a new student...");
+                    System.out.println("Student name: ");
+                    scan.nextLine();
+                    String name = scan.nextLine();
+                    System.out.println("Student age: ");
+                    int age = scan.nextInt();
+
+                    Student newStudent = new Student(lastId, name, age);
+                    lastId++;
+                    System.out.println("Student with the next info was successfully created: ");
+                    System.out.println("New student id: " + newStudent.getId());
+                    System.out.println("New student name: " + newStudent.getName());
+                    System.out.println("New student age: " + newStudent.getAge());
+                    pressEnterToContinue();
                     break;
                 case 4:
                     System.out.println("selected: 4");
@@ -41,5 +55,11 @@ public class Main {
                     break;
             }
         } while (option != 6);
+    }
+
+    public static void pressEnterToContinue() {
+        System.out.println("Press enter to continue...");
+        scan.nextLine();
+        scan.nextLine();
     }
 }

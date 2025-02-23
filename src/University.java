@@ -47,4 +47,14 @@ public class University {
     public void addClass(Class newClass){
         this.classes.add(newClass);
     }
+
+    public List<Class> getStudentClasses(Student student){
+        List<Class> studentClasses = new ArrayList<>();
+        for (Class universityClass : classes) {
+            if (universityClass.getStudents().contains(student)) {
+                studentClasses.add(universityClass);
+            }
+        }
+        return studentClasses;
+    }
 }

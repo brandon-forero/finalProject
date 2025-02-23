@@ -10,7 +10,7 @@ public class Class {
     public Class(String name, String classRoom, Teacher teacher) {
         this.name = name;
         ClassRoom = classRoom;
-        this.students = new ArrayList<>();;
+        this.students = new ArrayList<>();
         this.teacher = teacher;
     }
 
@@ -44,5 +44,9 @@ public class Class {
 
     public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
+    }
+
+    public void addStudent(Student student){
+        this.students.add(student);
     }
 }

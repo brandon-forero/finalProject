@@ -1,6 +1,7 @@
 public abstract class Teacher {
     private String name;
     private double baseSalary;
+    private double salary;
 
     public Teacher(String name, double baseSalary) {
         this.name = name;
@@ -24,4 +25,12 @@ public abstract class Teacher {
     }
 
     public abstract double calculateSalary();
+
+    public double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
 }

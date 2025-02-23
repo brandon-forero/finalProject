@@ -45,4 +45,8 @@ public class Class {
     public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
     }
+
+    public void addStudent(Student student){
+        this.students.add(student);
+    }
 }

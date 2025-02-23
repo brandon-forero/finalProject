@@ -4,9 +4,9 @@ public class Main {
     static Scanner scan = new Scanner(System.in);
     public static void main(String[] args) {
 
-        int lastId = 0;
         int option;
         int teacherType;
+        University university = new University();
 
         do {
             System.out.println("\nWelcome to the university system\nSelect an option:");
@@ -22,7 +22,11 @@ public class Main {
 
             switch (option) {
                 case 1:
-                    System.out.println("selected: 1");
+                    System.out.println("Teachers: ");
+                    for(int i = 0; i < university.getTeachers().size(); i++){
+                        Teacher teacher = university.getTeachers().get(i);
+                        System.out.println(i + ". \n name: " + teacher.getName() + ", salary: $" + teacher.getSalary());
+                    }
                     break;
                 case 2:
                     System.out.println("selected: 2");
@@ -35,8 +39,8 @@ public class Main {
                     System.out.println("Student age: ");
                     int age = scan.nextInt();
 
-                    Student newStudent = new Student(lastId, newStudentName, age);
-                    lastId++;
+                    Student newStudent = new Student(university.getStudents().size(), newStudentName, age);
+                    university.addStudent(newStudent);
                     System.out.println("Student with the next info was successfully created: ");
                     System.out.println("New student id: " + newStudent.getId());
                     System.out.println("New student name: " + newStudent.getName());
@@ -63,7 +67,7 @@ public class Main {
                         System.out.println("Teacher experience years: ");
                         int newTeacherExperienceYears = scan.nextInt();
                         FullTimeTeacher newTeacher = new FullTimeTeacher(newTeacherName, newTeacherBaseSalary, newTeacherExperienceYears);
-
+                        university.addTeacher(newTeacher);
                         System.out.println("Full time teacher with the next info was successfully created: ");
                         System.out.println("New teacher name: " + newTeacher.getName());
                         System.out.println("New teacher experience years: " + newTeacher.getExperienceYears());
@@ -73,7 +77,7 @@ public class Main {
                         System.out.println("Teacher active hours per week: ");
                         int newTeacherHoursPerWeek = scan.nextInt();
                         PartTimeTeacher newTeacher = new PartTimeTeacher(newTeacherName, newTeacherBaseSalary, newTeacherHoursPerWeek);
-
+                        university.addTeacher(newTeacher);
                         System.out.println("Part time teacher with the next info was successfully created: ");
                         System.out.println("New teacher name: " + newTeacher.getName());
                         System.out.println("New teacher experience years: " + newTeacher.getHoursPerWeek());

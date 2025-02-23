@@ -79,10 +79,11 @@ public class Main {
 
                     System.out.println("Classes list: ");
                     for(int i = 0; i < university.getClasses().size(); i++){
-                        System.out.println(i + ". " + university.getClasses().get(i));
+                        System.out.println(i + ". " + university.getClasses().get(i).getName());
                     }
                     System.out.println("Select a class for the student: ");
                     int studentClass = scan.nextInt();
+                    university.getClasses().get(studentClass).addStudent(newStudent);
                     System.out.println("Student with the next info was successfully created: ");
                     System.out.println("New student id: " + newStudent.getId());
                     System.out.println("New student name: " + newStudent.getName());

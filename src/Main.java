@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -181,7 +182,16 @@ public class Main {
                     pressEnterToContinue();
                     break;
                 case 6:
-                    System.out.println("selected: 6");
+                    System.out.println("Select an student to see his classes: ");
+                    for(Student student : university.getStudents()){
+                        System.out.println(student.getId() + ". " + student.getName());
+                    }
+                    Student student = university.getStudents().get(scan.nextInt());
+                    List<Class> studentClasses = university.getStudentClasses(student);
+                    for (int i = 0; i < studentClasses.size(); i++){
+                        System.out.println(i + ". " + studentClasses.get(i).getName());
+                    }
+
                     break;
                 case 7:
                     System.out.println("Bye Bye :)");

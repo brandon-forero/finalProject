@@ -4,12 +4,12 @@ import java.util.List;
 public class University {
     private List<Teacher> teachers;
     private List<Student> students;
-    private List<Class> Classes;
+    private List<Class> classes;
 
     public University() {
         this.teachers = new ArrayList<>();;
         this.students = new ArrayList<>();;
-        Classes = new ArrayList<>();;
+        classes = new ArrayList<>();;
     }
 
     public List<Teacher> getTeachers() {
@@ -29,10 +29,22 @@ public class University {
     }
 
     public List<Class> getClasses() {
-        return Classes;
+        return classes;
     }
 
     public void setClasses(List<Class> classes) {
-        Classes = classes;
+        this.classes = classes;
+    }
+
+    public void addStudent(Student student){
+        this.students.add(student);
+    }
+
+    public void addTeacher(Teacher teacher){
+        this.teachers.add(teacher);
+    }
+
+    public void addClass(Class newClass){
+        this.classes.add(newClass);
     }
 }

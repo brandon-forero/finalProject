@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -77,14 +76,37 @@ public class Main {
 
                     Student newStudent = new Student(university.getStudents().size(), newStudentName, age);
                     university.addStudent(newStudent);
+                    ArrayList<Class> allClasses = new ArrayList<>(university.getClasses());
+                    int newStudentClass = 0;
 
-                    System.out.println("Classes list: ");
-                    for(int i = 0; i < university.getClasses().size(); i++){
-                        System.out.println(i + ". " + university.getClasses().get(i).getName());
+                    while (newStudentClass != allClasses.size()){
+
+                        System.out.println("Select a class for the new student");
+                        List<Class> newStudentClasses = university.getStudentClasses(newStudent);
+                        allClasses.removeAll(newStudentClasses);
+
+                        for (int i = 0; i < allClasses.size(); i++){
+                            System.out.println(i + ". " + allClasses.get(i).getName());
+                        }
+                        System.out.println(allClasses.size() + ". Finish register");
+
+                        newStudentClass = scan.nextInt();
+                        if(newStudentClass >= 0 && newStudentClass < allClasses.size()){
+                            allClasses.get(newStudentClass).addStudent(newStudent);
+                            pressEnterToContinue();
+
+
+                        }else if (newStudentClass == allClasses.size()){
+                            System.out.println("Returning to menu...");
+                            pressEnterToContinue();
+                        }
+                        else {
+                            System.out.println("Invalid option :(, try again");
+
+                        }
+
                     }
-                    System.out.println("Select a class for the student: ");
-                    int studentClass = scan.nextInt();
-                    university.getClasses().get(studentClass).addStudent(newStudent);
+
                     System.out.println("Student with the next info was successfully created: ");
                     System.out.println("New student id: " + newStudent.getId());
                     System.out.println("New student name: " + newStudent.getName());
@@ -199,7 +221,7 @@ public class Main {
                     for (int i = 0; i < studentClasses.size(); i++){
                         System.out.println(i + ". " + studentClasses.get(i).getName());
                     }
-
+                    pressEnterToContinue();
                     break;
                 case 7:
                     System.out.println("Bye Bye :)");
